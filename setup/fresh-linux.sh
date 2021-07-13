@@ -42,7 +42,7 @@ sudo apt-get install gh
 # Add dependencies for Microsoft
 wget https://packages.microsoft.com/config/${DISTRIBUTION:l}/$VERSION/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 sudo dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
+rm -f packages-microsoft-prod.deb
 
 # Install dotnet
 sudo apt-get update; \
@@ -57,6 +57,7 @@ sudo sh ./get-docker.sh
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker 
+rm -f get-docker.sh
 
 # Install Azure CLI
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
